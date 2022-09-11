@@ -1,10 +1,8 @@
-import requests
-
+import argparse
 from urllib.parse import urlparse
 
+import requests
 from environs import Env
-
-import argparse
 
 
 def shorten_link(token, url):
