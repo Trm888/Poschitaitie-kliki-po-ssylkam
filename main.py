@@ -39,9 +39,9 @@ def main():
     env = Env()
     env.read_env()
     parser = argparse.ArgumentParser(description='')
-    parser.add_argument('URL', help='URL адрес')
+    parser.add_argument('url', help='URL адрес')
     args = parser.parse_args()
-    url = args.URL
+    url = args.url
     token = env.str("BITLY_TOKEN")
     if is_bitlink(token, url):
         print(count_clicks(token, url))
