@@ -41,12 +41,11 @@ def main():
     parser = argparse.ArgumentParser(description='')
     parser.add_argument('url', help='URL адрес')
     args = parser.parse_args()
-    url = args.url
     token = env.str("BITLY_TOKEN")
-    if is_bitlink(token, url):
-        print(count_clicks(token, url))
+    if is_bitlink(token, args.url):
+        print(count_clicks(token, args.url))
     else:
-        print(shorten_link(token, url))
+        print(shorten_link(token, args.url))
 
 
 if __name__ == '__main__':
