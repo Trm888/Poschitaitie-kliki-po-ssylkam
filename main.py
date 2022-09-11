@@ -6,15 +6,6 @@ from environs import Env
 
 import argparse
 
-parser = argparse.ArgumentParser(
-    description=''
-)
-
-parser.add_argument('URL', help='URL адрес')
-
-env = Env()
-env.read_env()
-
 
 def shorten_link(token, url):
     headers = {'Authorization': f'Bearer {token}'}
@@ -45,6 +36,10 @@ def is_bitlink(token, url):
 
 
 def main():
+    env = Env()
+    env.read_env()
+    parser = argparse.ArgumentParser(description='')
+    parser.add_argument('URL', help='URL адрес')
     args = parser.parse_args()
     url = args.URL
     token = env.str("BITLY_TOKEN")
@@ -55,5 +50,4 @@ def main():
 
 
 if __name__ == '__main__':
-
     main()
