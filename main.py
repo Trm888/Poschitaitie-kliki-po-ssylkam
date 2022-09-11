@@ -11,7 +11,6 @@ parser = argparse.ArgumentParser(
 )
 
 parser.add_argument('URL', help='URL адрес')
-args = parser.parse_args()
 
 env = Env()
 env.read_env()
@@ -46,6 +45,7 @@ def is_bitlink(token, url):
 
 
 def main():
+    args = parser.parse_args()
     url = args.URL
     token = env.str("BITLY_TOKEN")
     if is_bitlink(token, url):
@@ -55,4 +55,5 @@ def main():
 
 
 if __name__ == '__main__':
+
     main()
